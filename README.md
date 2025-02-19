@@ -1,44 +1,32 @@
-# Repository Template
+# Mock Lambda API
 
-[![CI/CD Pull Request](https://github.com/nhs-england-tools/repository-template/actions/workflows/cicd-1-pull-request.yaml/badge.svg)](https://github.com/nhs-england-tools/repository-template/actions/workflows/cicd-1-pull-request.yaml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=repository-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=repository-template)
+## Overview
 
-Start with an overview or a brief description of what the project is about and what it does. For example -
-
-Welcome to our repository template designed to streamline your project setup! This robust template provides a reliable starting point for your new projects, covering an essential tech stack and encouraging best practices in documenting.
-
-This repository template aims to foster a user-friendly development environment by ensuring that every included file is concise and adequately self-documented. By adhering to this standard, we can promote increased clarity and maintainability throughout your project's lifecycle. Bundled within this template are resources that pave the way for seamless repository creation. Currently supported technologies are:
-
-- Terraform
-- Docker
-
-Make use of this repository template to expedite your project setup and enhance your productivity right from the get-go. Enjoy the advantage of having a well-structured, self-documented project that reduces overhead and increases focus on what truly matters - coding!
+This project provides a mock server for simulating API requests and responses using AWS Lambda functions, primarily for performance testing purposes. The structure of the project is set up so that it can be reused for other API endpoints and by taking advantage of tools, templates and code already built, the time to build a new mock will be significantly decreased.
 
 ## Table of Contents
 
-- [Repository Template](#repository-template)
+- [Mock Lambda API](#mock-lambda-api)
+  - [Overview](#overview)
   - [Table of Contents](#table-of-contents)
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
     - [Configuration](#configuration)
   - [Usage](#usage)
+    - [CIS2 Mock](#cis2-mock)
     - [Testing](#testing)
   - [Design](#design)
-    - [Diagrams](#diagrams)
-    - [Modularity](#modularity)
   - [Contributing](#contributing)
   - [Contacts](#contacts)
   - [Licence](#licence)
 
 ## Setup
 
-By including preferably a one-liner or if necessary a set of clear CLI instructions we improve user experience. This should be a frictionless installation process that works on various operating systems (macOS, Linux, Windows WSL) and handles all the dependencies.
-
 Clone the repository
 
 ```shell
-git clone https://github.com/nhs-england-tools/repository-template.git
-cd nhs-england-tools/repository-template
+git clone https://github.com/NHSDigital/mock-lambda-api.git
+cd mock-lambda-api
 ```
 
 ### Prerequisites
@@ -77,51 +65,52 @@ make config
 
 ## Usage
 
-After a successful installation, provide an informative example of how this project can be used. Additional code snippets, screenshots and demos work well in this space. You may also link to the other documentation resources, e.g. the [User Guide](./docs/user-guide.md) to demonstrate more use cases and to show more features.
+To use the mock stub locally you must have the docker container running. Here are some examples of requests to access the endpoints in this repository:
+
+### CIS2 Mock
+
+To access the API endpoints using Guzzle HTTP client in PHP, follow these steps
+
+
+<!-- Provisionally - likely to change as developing -->
+
+1) **Install Guzzle**
+
+    ```shell
+    composer require guzzlehttp/guzzle
+    ```
+
+2) **Ensure your environment** is 'local-test' so that when the API call is made it hits the mock endpoint , not prod or non-prod.
+3) **Use the Existing PHP Script:** Use the PHP script from the other repository to make requests to the mock API endpoints. Ensure the script is configured to point to the mock server running locally.
+4) **Start the Mock Server:** Ensure the mock server is running locally. You can start the server using the following command:
+
+   ```shell
+   npm start
+   ```
+
+5) **Update the API Endpoint:** Update the API endpoint in your tests to point to the mock server. For example, if the mock server is running on `http://localhost:3000`, update the endpoint URLs in your tests accordingly.
 
 ### Testing
 
-There are `make` tasks for you to configure to run your tests.  Run `make test` to see how they work.  You should be able to use the same entry points for local development as in your CI pipeline.
+TBC
 
 ## Design
 
-### Diagrams
-
-The [C4 model](https://c4model.com/) is a simple and intuitive way to create software architecture diagrams that are clear, consistent, scalable and most importantly collaborative. This should result in documenting all the system interfaces, external dependencies and integration points.
-
-![Repository Template](./docs/diagrams/Repository_Template_GitHub_Generic.png)
-
-The source for diagrams should be in Git for change control and review purposes. Recommendations are [draw.io](https://app.diagrams.net/) (example above in [docs](.docs/diagrams/) folder) and [Mermaids](https://github.com/mermaid-js/mermaid). Here is an example Mermaids sequence diagram:
-
-```mermaid
-sequenceDiagram
-    User->>+Service: GET /users?params=...
-    Service->>Service: auth request
-    Service->>Database: get all users
-    Database-->>Service: list of users
-    Service->>Service: filter users
-    Service-->>-User: list[User]
-```
-
-### Modularity
-
-Most of the projects are built with customisability and extendability in mind. At a minimum, this can be achieved by implementing service level configuration options and settings. The intention of this section is to show how this can be used. If the system processes data, you could mention here for example how the input is prepared for testing - anonymised, synthetic or live data.
+TBC
 
 ## Contributing
 
-Describe or link templates on how to raise an issue, feature request or make a contribution to the codebase. Reference the other documentation files, like
-
-- Environment setup for contribution, i.e. `CONTRIBUTING.md`
-- Coding standards, branching, linting, practices for development and testing
-- Release process, versioning, changelog
-- Backlog, board, roadmap, ways of working
-- High-level requirements, guiding principles, decision records, etc.
+TBC
 
 ## Contacts
 
-Provide a way to contact the owners of this project. It can be a team, an individual or information on the means of getting in touch via active communication channels, e.g. opening a GitHub discussion, raising an issue, etc.
+TBC
+
+To get in contact with the owners of this project please **email** england.ftrs-live-directory@nhs.net or message on the following **slack channels**: [dos-devs](https://nhsdigitalcorporate.enterprise.slack.com/archives/CTZ3M4L7Q)  or [ftrs-live-directory](https://nhsdigitalcorporate.enterprise.slack.com/archives/).
 
 ## Licence
+
+TBC
 
 > The [LICENCE.md](./LICENCE.md) file will need to be updated with the correct year and owner
 
