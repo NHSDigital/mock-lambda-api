@@ -71,7 +71,6 @@ To use the mock stub locally you must have the docker container running. Here ar
 
 To access the API endpoints using Guzzle HTTP client in PHP, follow these steps
 
-
 <!-- Provisionally - likely to change as developing -->
 
 1) **Install Guzzle**
@@ -106,7 +105,7 @@ TBC
 
 TBC
 
-To get in contact with the owners of this project please **email** england.ftrs-live-directory@nhs.net or message on the following **slack channels**: [dos-devs](https://nhsdigitalcorporate.enterprise.slack.com/archives/CTZ3M4L7Q)  or [ftrs-live-directory](https://nhsdigitalcorporate.enterprise.slack.com/archives/).
+To get in contact with the owners of this project please **email** [england.ftrs-live-directory@nhs.net](mailto:england.ftrs-live-directory@nhs.net) or message on the following **slack channels**: [dos-devs](https://nhsdigitalcorporate.enterprise.slack.com/archives/CTZ3M4L7Q)  or [ftrs-live-directory](https://nhsdigitalcorporate.enterprise.slack.com/archives/).
 
 ## Licence
 
